@@ -6,10 +6,8 @@ Utility for downloading WIP builds of Friday Night Funkin' engines on GitHub bas
 Visit the releases page.
 
 # Building
----
 ### What you'll need:
-GameMaker Studio (latest)
----
+[GameMaker Studio (latest)](https://gamemaker.io/en/download)
 ### How to build:
 Simply press F5 to test after loading up the project's YYP (make sure to set the target in the upper righthand corner as your system of choice).
 Press F8 to compile an executable (or installer, if you're that kind of person).

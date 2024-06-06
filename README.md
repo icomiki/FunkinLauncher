@@ -1,6 +1,6 @@
 # Funkin' Launcher
 Utility for downloading WIP builds of Friday Night Funkin' engines on GitHub based off the [original internal tool](https://funkin.me/blog/2024-03-12/#the-factory-must-grow) by hazel at The Funkin' Crew, Inc.
-![](https://github.com/icomiki/FunkinLauncher/blob/main/img/launcher1.png?raw=true)
+![](https://github.com/icomiki/FunkinLauncher/blob/master/img/launcher1.png?raw=true)
 
 # Just here to download?
 Visit the releases page.

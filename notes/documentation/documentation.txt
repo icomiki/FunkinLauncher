@@ -1,0 +1,32 @@
+This note is high-level documentation for the core parts of this template project.
+
+# OBJECTS
+
+There is one Object within this project:
+
+obj_camera
+	Object that controls the room scaling and any wallpaper configue options.
+
+# ROOMS
+
+There is one Room within this project:
+
+rm_live_wallpaper
+	Only room and default opens first. Only contains the camera object as well as the background layer.
+
+# SPRITES
+
+There is one sprite within this project:
+
+spr_background
+		
+~~ Possible Edits! ~~
+
+If you want to edit parts of this project to make it more unique and personal feel free to!
+
+Why not try:
+	- Uncommenting the code at the top of the cameras step event to try different scaling modes.
+	- Adding assets to the layers of the room to make it your own.
+	- Or use this as an idea of how to make your own live wallpaper from scratch!
+	
+Don't forget to share what you make to gx.games so others can use your wallpapers too!

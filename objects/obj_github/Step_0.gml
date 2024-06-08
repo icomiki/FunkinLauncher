@@ -1,3 +1,4 @@
+isDownloading = instance_exists(obj_stickers)
 if searchMode && emitter1_bus.effects[0] != lopass
 {
 	lopass.cutoff = 100000;
@@ -90,6 +91,7 @@ else if keyboard_check_pressed(vk_enter) && searchMode
 	berg = http_get("https://api.github.com/repos/" + repo + "/actions/runs?per_page=100&status=success")
 	buildInfo = {workflow_runs: [{display_title: "Loading...", name: "Loading...", run_started_at: "Loading...T", head_sha: "Loading...", actor: {login: "Loading..."}, head_commit: {message: "Loading..."}}]};
 	searchMode = false;
+	instance_create_depth(0, 0, depth - 100, obj_stickers)
 }
 else if keyboard_check_pressed(vk_enter) && !creditsMode
 	audio_play_sound(undo, 0, false)	
@@ -113,10 +115,10 @@ if keyboard_check_pressed(ord("S")) && !searchMode && !artifactsMode && !credits
 		keyboard_string = "";
 	}
 if keyboard_check_pressed(ord("C")) && !searchMode && !artifactsMode && !isDownloading && buildInfo.workflow_runs[0].run_started_at != "Loading...T"
-	{
+{
 		audio_play_sound(remote_click, 0, false)
 		creditsMode = !creditsMode
-	}
+}
 selectedBuild = buildInfo.workflow_runs[arrayIndex].display_title
 
 if searchMode

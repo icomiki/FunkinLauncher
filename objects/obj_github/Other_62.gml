@@ -45,7 +45,7 @@ if (ds_map_find_value(async_load, "id") == berg)
 			{
 				var dayt = month;
 				month = day;
-				day = month;
+				day = dayt;
 			}
 			buildInfo.workflow_runs[i].run_started_at = $"{date_time_string(date)} {day}/{month}/{year}";
 		})

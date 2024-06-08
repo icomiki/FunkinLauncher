@@ -22,33 +22,33 @@ else
 
 if artifactsMode
 {
-if keyboard_check_pressed(vk_left) && arrayIndex2 - 1 > -1
-{
-	audio_play_sound(comboSound, 0, false)
-	arrayIndex2--
-}
-else if keyboard_check_pressed(vk_right) && (arrayIndex2 + 1 < array_length(artifacts))
-{
-	audio_play_sound(comboSound, 0, false)	
-	arrayIndex2++
-}
-else if keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left)
-	audio_play_sound(undo, 0, false)
+	if keyboard_check_pressed(vk_left) && arrayIndex2 - 1 > -1
+	{
+		audio_play_sound(comboSound, 0, false)
+		arrayIndex2--
+	}
+	else if keyboard_check_pressed(vk_right) && (arrayIndex2 + 1 < array_length(artifacts))
+	{
+		audio_play_sound(comboSound, 0, false)	
+		arrayIndex2++
+	}
+	else if keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left)
+		audio_play_sound(undo, 0, false)
 }
 else
 {
-if keyboard_check_pressed(vk_left) && arrayIndex - 1 > -1 && !isDownloading && !searchMode && !creditsMode
-{
-	audio_play_sound(comboSound, 0, false)
-	arrayIndex--
-}
-else if keyboard_check_pressed(vk_right) && (arrayIndex + 1 < array_length(buildInfo.workflow_runs)) && !isDownloading && !searchMode && !creditsMode
-{
-	audio_play_sound(comboSound, 0, false)	
-	arrayIndex++
-}
-else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left)) && !searchMode && !creditsMode
-	audio_play_sound(undo, 0, false)
+	if keyboard_check_pressed(vk_left) && arrayIndex - 1 > -1 && !isDownloading && !searchMode && !creditsMode
+	{
+		audio_play_sound(comboSound, 0, false)
+		arrayIndex--
+	}
+	else if keyboard_check_pressed(vk_right) && (arrayIndex + 1 < array_length(buildInfo.workflow_runs)) && !isDownloading && !searchMode && !creditsMode
+	{
+		audio_play_sound(comboSound, 0, false)	
+		arrayIndex++
+	}
+	else if (keyboard_check_pressed(vk_right) || keyboard_check_pressed(vk_left)) && !searchMode && !creditsMode
+		audio_play_sound(undo, 0, false)
 }
 if keyboard_check_pressed(vk_enter) && artifactsMode
 {
@@ -56,24 +56,25 @@ if keyboard_check_pressed(vk_enter) && artifactsMode
 	channel = artifacts[arrayIndex2].name
 	bloh = http_get_file("https://nightly.link/" + repo + "/actions/runs/" + string(buildInfo.workflow_runs[arrayIndex].id) + "/" + channel + ".zip", working_directory + "/temp/" + buildInfo.workflow_runs[arrayIndex].head_sha + ".zip");	
 	artifactsMode = false;
+	startingDownloadTime = get_timer();
 }
 else if keyboard_check_pressed(vk_enter) && !isDownloading && buildInfo.workflow_runs[0].run_started_at != "Loading...T" && buildInfo.workflow_runs[0].run_started_at != "N/AT" && !searchMode && !creditsMode
 {
 	channel = "Load..."
 	try
 	{
-	build = buildInfo.workflow_runs[arrayIndex].head_repository.full_name + " (" + string_copy(buildInfo.workflow_runs[arrayIndex].head_sha, 0, 7) + ")"
+		build = buildInfo.workflow_runs[arrayIndex].head_repository.full_name + " (" + string_copy(buildInfo.workflow_runs[arrayIndex].head_sha, 0, 7) + ")"
 	}
 	catch(e)
 	{
-	try
-	{
-	build = buildInfo.workflow_runs[arrayIndex].repository.full_name + " (" + string_copy(buildInfo.workflow_runs[arrayIndex].head_sha, 0, 7) + ")"
-	}
-	catch(e)
-	{
-	build = "Error getting repo."	
-	}
+		try
+		{
+			build = buildInfo.workflow_runs[arrayIndex].repository.full_name + " (" + string_copy(buildInfo.workflow_runs[arrayIndex].head_sha, 0, 7) + ")"
+		}
+		catch(e)
+		{
+			build = "Error getting repo."	
+		}
 	}
 	audio_play_sound(remote_click, 0, false)
 	bleh = http_get("https://api.github.com/repos/" + repo + "/actions/runs/" + string(buildInfo.workflow_runs[arrayIndex].id) + "/artifacts");
@@ -94,29 +95,29 @@ else if keyboard_check_pressed(vk_enter) && searchMode
 else if keyboard_check_pressed(vk_enter) && !creditsMode
 	audio_play_sound(undo, 0, false)	
 if (keyboard_check_pressed(vk_escape) || keyboard_check_pressed(vk_backspace)) && artifactsMode && !searchMode &&!creditsMode
-	{
-		textlol = "..."
-		channel = "..."
-		build = "..."
-		audio_play_sound(undo, 0, false)
-		artifactsMode = false;
-		isDownloading = false;
-	}
+{
+	textlol = "..."
+	channel = "..."
+	build = "..."
+	audio_play_sound(undo, 0, false)
+	artifactsMode = false;
+	isDownloading = false;
+}
 if (keyboard_check_pressed(vk_escape)) && searchMode
-	{
-		searchMode = false;
-	}
+{
+	searchMode = false;
+}
 if keyboard_check_pressed(ord("S")) && !searchMode && !artifactsMode && !creditsMode && !isDownloading && buildInfo.workflow_runs[0].run_started_at != "Loading...T"
-	{
-		audio_play_sound(remote_click, 0, false)
-		searchMode = true
-		keyboard_string = "";
-	}
+{
+	audio_play_sound(remote_click, 0, false)
+	searchMode = true
+	keyboard_string = "";
+}
 if keyboard_check_pressed(ord("C")) && !searchMode && !artifactsMode && !isDownloading && buildInfo.workflow_runs[0].run_started_at != "Loading...T"
-	{
-		audio_play_sound(remote_click, 0, false)
-		creditsMode = !creditsMode
-	}
+{
+	audio_play_sound(remote_click, 0, false)
+	creditsMode = !creditsMode
+}
 selectedBuild = buildInfo.workflow_runs[arrayIndex].display_title
 
 if searchMode

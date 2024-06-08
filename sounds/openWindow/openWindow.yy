@@ -12,8 +12,8 @@
   "conversionMode": 0,
   "duration": 0.652188,
   "parent": {
-    "name": "Funkin' Launcher",
-    "path": "Funkin' Launcher.yyp",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "preload": false,
   "sampleRate": 44100,

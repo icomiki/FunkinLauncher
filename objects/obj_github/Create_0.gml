@@ -22,7 +22,7 @@ build = "..."
 selectedBuild = "..."
 path = ""
 isDownloading = false;
-buildInfo = {workflow_runs: [{display_title: "Loading...", name: "Loading...", run_started_at: "Loading...T", head_sha: "Loading...", actor: {login: "Loading..."}, head_commit: {message: "Loading..."}}]};
+buildInfo = {workflow_runs: [{display_title: "Loading...", name: "Loading...", run_started_at: "Loading...", head_sha: "Loading...", actor: {login: "Loading..."}, head_commit: {message: "Loading..."}}]};
 artifacts = 0;
 arrayIndex = 0;
 arrayIndex2 = 0;
@@ -38,3 +38,5 @@ audio_play_sound_on(emitter1, chartEditorLoop, true, 0, 1, 0, 0.9)
 targetAlpha = 0;
 lightstoDraw = 0;
 creditsMode = false;
+// fancy smart time
+startingDownloadTime = 0;
